@@ -1,0 +1,36 @@
+{
+  "name": "42 Intra Login Watcher",
+  "description": "42 Intra user login watcher",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "scripting", "storage"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://profile.intra.42.fr/*",
+        "https://profile-v2.intra.42.fr/*",
+        "https://profile-v3.intra.42.fr/*"
+      ],
+      "js": ["content.js", "toastify.js"],
+      "css": ["toastify.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "https://profile.intra.42.fr/*",
+        "https://profile-v2.intra.42.fr/*",
+        "https://profile-v3.intra.42.fr/*"
+      ],
+      "resources": ["toastify.js", "toastify.css"]
+    }
+  ],
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/64.png",
+    "128": "icons/128.png"
+  }
+}
