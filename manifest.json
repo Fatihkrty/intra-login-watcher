@@ -15,8 +15,8 @@
         "https://profile-v2.intra.42.fr/*",
         "https://profile-v3.intra.42.fr/*"
       ],
-      "js": ["content.js", "toastify.js"],
-      "css": ["toastify.css"]
+      "js": ["content.js", "lib/tastify/toastify.js"],
+      "css": ["lib/tastify/toastify.css"]
     }
   ],
   "web_accessible_resources": [
@@ -26,7 +26,7 @@
         "https://profile-v2.intra.42.fr/*",
         "https://profile-v3.intra.42.fr/*"
       ],
-      "resources": ["toastify.js", "toastify.css"]
+      "resources": ["lib/tastify/toastify.js", "lib/tastify/toastify.css"]
     }
   ],
   "icons": {

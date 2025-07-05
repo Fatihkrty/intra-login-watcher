@@ -3,7 +3,7 @@ let dismissSecond;
 let selectedCampuses;
 
 async function getCampuses() {
-  const data = await fetch("campuses.json");
+  const data = await fetch("assets/campuses.json");
 
   return data.json();
 }
