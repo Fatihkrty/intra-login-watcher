@@ -19,7 +19,7 @@
   <div style="background-color: #f2f2f2;">
     <div class="alert alert-primary" role="alert">
 
-      <h2 class="text-center">Intra Login Watcher</h2>
+      <h2 class="text-center" id="title-label">Intra Login Watcher</h2>
     </div>
 
     <div class="container" style="width: 450px; ">
@@ -27,29 +27,26 @@
       <div>
 
         <div style="display: flex; align-items: center; justify-content: space-between;">
-          <h4 class="text-bold">Kampüsler</h4>
-          <button id="choose-all-btn" class="btn btn-outline-primary btn-sm">Tümünü Seç / Kaldır</button>
+          <h4 class="text-bold" id="campuses-label"></h4>
+          <button id="select-unselect-btn" class="btn btn-outline-primary btn-sm"></button>
         </div>
 
         <!-- Fill With Javascript -->
         <div id="campus-list"></div>
       </div>
 
-
       <div>
-
-
         <hr style="width: 100%;" />
 
-        <h5 class="text-bold">Ayarlar</h5>
+        <h5 class="text-bold" id="settings-label"></h5>
 
         <div>
           <div class="form-group">
-            <label for="dismissSecond">Bildirim Süresi</label>
+            <label for="dismissSecond" id="popup-second-label"></label>
             <input type="number" min="-1" max="10000" class="form-control" id="dismissSecond" placeholder="5000 ms">
-            <small id="input-description" class="form-text text-muted">Milisaniye türünde olmalıdır.</small>
+            <small id="input-description" class="form-text text-muted"></small>
           </div>
-          <small class="form-text text-muted">Not: -1 kalıcı olarak görünmesini sağlar</small>
+          <small class="form-text text-muted" id="info-message-label"></small>
         </div>
       </div>
 

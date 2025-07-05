@@ -1,9 +1,10 @@
 {
-  "name": "42 Intra Login Watcher",
-  "description": "42 Intra user login watcher",
+  "name": "__MSG_extension_name__",
+  "description": "__MSG_greeting__",
   "version": "1.0",
   "manifest_version": 3,
   "permissions": ["activeTab", "scripting", "storage"],
+  "default_locale": "tr",
   "action": {
     "default_popup": "popup.html"
   },

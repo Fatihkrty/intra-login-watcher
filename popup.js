@@ -8,10 +8,6 @@ async function getCampuses() {
   return data.json();
 }
 
-async function sendCampusListContentJs() {
-  return chrome.storage.local.set({ campusList: selectedCampuses });
-}
-
 async function updateCampusList() {
   const campuses = await getCampuses();
 
@@ -34,18 +30,40 @@ async function updateCampusList() {
 }
 
 async function drawHtml() {
+  document.getElementById("title-label").innerText =
+    chrome.i18n.getMessage("extension_name");
+
+  document.getElementById("campuses-label").innerText =
+    chrome.i18n.getMessage("campuses");
+
+  document.getElementById("select-unselect-btn").innerText =
+    chrome.i18n.getMessage("select_unselect");
+
+  document.getElementById("settings-label").innerText =
+    chrome.i18n.getMessage("settings");
+
+  document.getElementById("popup-second-label").innerText =
+    chrome.i18n.getMessage("popup_second");
+
+  document.getElementById("info-message-label").innerText =
+    chrome.i18n.getMessage("info_message");
+
+  document.getElementById("input-description").innerText =
+    chrome.i18n.getMessage("inputDescription");
+
   const campuses = await getCampuses();
 
   const campusDiv = document.getElementById("campus-list");
 
+  // Fill campus-list div
   for (let i = 0; i < campuses.length; i++) {
     const campus = campuses[i];
 
-    // div elementini oluştur
+    // create div
     const div = document.createElement("div");
     div.className = "form-check";
 
-    // input elementini oluştur
+    // create input
     const input = document.createElement("input");
     input.className = "form-check-input";
     input.type = "checkbox";
@@ -53,35 +71,36 @@ async function drawHtml() {
     input.value = campus.id;
     input.checked = Boolean(selectedCampuses[campus.id]);
 
-    // label elementini oluştur
+    // create label
     const label = document.createElement("label");
     label.className = "form-check-label";
     label.setAttribute("for", campus.id);
     label.textContent = campus.name;
 
-    // input ve label'ı div'e ekle
+    // add input and label in div
     div.appendChild(input);
     div.appendChild(label);
 
-    // div'i campus-list içine ekle
+    // add campus-list to div
     campusDiv.appendChild(div);
   }
 
-  const chooseAllBtn = document.getElementById("choose-all-btn");
+  // Select Select/Unselect Button
+  const selectUnselectBtn = document.getElementById("select-unselect-btn");
 
-  chooseAllBtn.onclick = async () => {
+  selectUnselectBtn.onclick = async () => {
     await updateCampusList();
-    await sendCampusListContentJs();
+    await chrome.storage.local.set({ campusList: selectedCampuses });
   };
 
   // Start Stop Button
   const startStopBtn = document.getElementById("start-stop-button");
 
   if (isActive) {
-    startStopBtn.textContent = "Durdur";
+    startStopBtn.textContent = chrome.i18n.getMessage("stop");
     startStopBtn.className = "btn btn-danger";
   } else {
-    startStopBtn.textContent = "Başlat";
+    startStopBtn.textContent = chrome.i18n.getMessage("start");
     startStopBtn.className = "btn btn-success";
   }
 
@@ -89,10 +108,10 @@ async function drawHtml() {
     isActive = !isActive;
 
     if (isActive) {
-      startStopBtn.textContent = "Durdur";
+      startStopBtn.textContent = chrome.i18n.getMessage("stop");
       startStopBtn.className = "btn btn-danger";
     } else {
-      startStopBtn.textContent = "Başlat";
+      startStopBtn.textContent = chrome.i18n.getMessage("start");
       startStopBtn.className = "btn btn-success";
     }
 
@@ -109,12 +128,13 @@ async function drawHtml() {
     const inputNumber = e.target.valueAsNumber;
 
     if (!Number.isNaN(inputNumber) && inputNumber > -2) {
-      inputDescription.textContent = "Milisaniye türünde olmalıdır.";
+      inputDescription.textContent = chrome.i18n.getMessage("inputDescription");
       inputDescription.classList.replace("text-danger", "text-muted");
       dismissSecond = inputNumber;
     } else {
-      inputDescription.textContent =
-        "Geçerli bir değer girin. En az -1 değeri girilebilir.";
+      inputDescription.textContent = chrome.i18n.getMessage(
+        "inputDescriptionError"
+      );
       inputDescription.classList.replace("text-muted", "text-danger");
       dismissSecond = 5000;
     }
@@ -158,7 +178,7 @@ async function main() {
       delete selectedCampuses[id];
     }
 
-    await sendCampusListContentJs();
+    await chrome.storage.local.set({ campusList: selectedCampuses });
   });
 }
 

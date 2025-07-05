@@ -1,0 +1,37 @@
+{
+  "extension_name": {
+    "message": "42 Intra Login Watcher 👀",
+    "description": "42 Intra user login tracking plugin"
+  },
+  "greeting": {
+    "message": "42 Intra Login Watcher 👀",
+    "description": "42 Intra user login tracking plugin"
+  },
+  "start": {
+    "message": "Start"
+  },
+  "stop": {
+    "message": "Stop"
+  },
+  "inputDescription": {
+    "message": "Must be in milliseconds."
+  },
+  "inputDescriptionError": {
+    "message": "Enter a valid value. A minimum value of -1 can be entered."
+  },
+  "campuses": {
+    "message": "Campuses"
+  },
+  "select_unselect": {
+    "message": "Select / Remove All"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "popup_second": {
+    "message": "Notification Period"
+  },
+  "info_message": {
+    "message": "Note: -1 makes it appear permanently."
+  }
+}

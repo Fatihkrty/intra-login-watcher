@@ -1,0 +1,37 @@
+{
+  "extension_name": {
+    "message": "42 Intra Login Watcher 👀",
+    "description": "42 Intra kullanıcı giriş takip eklentisi"
+  },
+  "greeting": {
+    "message": "42 Intra Login Watcher 👀",
+    "description": "42 Intra kullanıcı giriş takip eklentisi"
+  },
+  "start": {
+    "message": "Başlat"
+  },
+  "stop": {
+    "message": "Durdur"
+  },
+  "inputDescription": {
+    "message": "Milisaniye türünde olmalıdır."
+  },
+  "inputDescriptionError": {
+    "message": "Geçerli bir değer girin. En az -1 değeri girilebilir."
+  },
+  "campuses": {
+    "message": "Kampüsler"
+  },
+  "select_unselect": {
+    "message": "Tümünü Seç / Kaldır"
+  },
+  "settings": {
+    "message": "Ayarlar"
+  },
+  "popup_second": {
+    "message": "Bildirim Süresi"
+  },
+  "info_message": {
+    "message": "Not: -1 kalıcı olarak görünmesini sağlar."
+  }
+}
